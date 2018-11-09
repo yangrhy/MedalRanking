@@ -1,0 +1,10 @@
+C:\Users\Huechi\source\repos\MedalRanking\MedalRanking\bin\Debug\MedalRanking.exe.config
+C:\Users\Huechi\source\repos\MedalRanking\MedalRanking\bin\Debug\MedalRanking.exe
+C:\Users\Huechi\source\repos\MedalRanking\MedalRanking\bin\Debug\MedalRanking.pdb
+C:\Users\Huechi\source\repos\MedalRanking\MedalRanking\obj\Debug\MedalRanking.csprojAssemblyReference.cache
+C:\Users\Huechi\source\repos\MedalRanking\MedalRanking\obj\Debug\MedalRanking.Form1.resources
+C:\Users\Huechi\source\repos\MedalRanking\MedalRanking\obj\Debug\MedalRanking.Properties.Resources.resources
+C:\Users\Huechi\source\repos\MedalRanking\MedalRanking\obj\Debug\MedalRanking.csproj.GenerateResource.cache
+C:\Users\Huechi\source\repos\MedalRanking\MedalRanking\obj\Debug\MedalRanking.csproj.CoreCompileInputs.cache
+C:\Users\Huechi\source\repos\MedalRanking\MedalRanking\obj\Debug\MedalRanking.exe
+C:\Users\Huechi\source\repos\MedalRanking\MedalRanking\obj\Debug\MedalRanking.pdb
