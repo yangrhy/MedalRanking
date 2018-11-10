@@ -34,7 +34,6 @@
             this.panelUSAsilver = new System.Windows.Forms.Panel();
             this.numSilverUSA = new System.Windows.Forms.NumericUpDown();
             this.panelUSAgold = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.numGoldUSA = new System.Windows.Forms.NumericUpDown();
             this.panelRUSbronze = new System.Windows.Forms.Panel();
             this.numBronzeRUS = new System.Windows.Forms.NumericUpDown();
@@ -137,24 +136,11 @@
             // panelUSAgold
             // 
             this.panelUSAgold.BackColor = System.Drawing.Color.Transparent;
-            this.panelUSAgold.Controls.Add(this.button2);
             this.panelUSAgold.Controls.Add(this.numGoldUSA);
             this.panelUSAgold.Location = new System.Drawing.Point(3, 3);
             this.panelUSAgold.Name = "panelUSAgold";
             this.panelUSAgold.Size = new System.Drawing.Size(602, 69);
             this.panelUSAgold.TabIndex = 4;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Gold;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(3, 43);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Insert Gold Medals";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // numGoldUSA
             // 
@@ -326,7 +312,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
     }
 }
 
