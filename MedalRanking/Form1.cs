@@ -25,7 +25,6 @@ namespace MedalRanking
             pbGoldUSA.BackgroundImage = Properties.Resources.gold;
             pbGoldUSA.BackgroundImageLayout = ImageLayout.Stretch;
             int x = 80; // for x coordinate
-            int secX = 80;
 
             for (int i = 0; i < numGold; i++)
             {
@@ -34,13 +33,11 @@ namespace MedalRanking
                     pbGoldUSA.Location = new Point(x - 480, 40);
                     panelUSAgold.Controls.Add(pbGoldUSA);
                     x += 20;
-                    textBox1.Text = $"{x}{secX}";
                 }
                 else
                 {
                     pbGoldUSA.Location = new Point(x + 20, 20);
                     panelUSAgold.Controls.Add(pbGoldUSA);
-                    textBox1.Text = $"{x}{secX}";
                     x += 20;
                 }
             }
@@ -54,7 +51,6 @@ namespace MedalRanking
             pbGoldRUS.BackgroundImage = Properties.Resources.gold;
             pbGoldRUS.BackgroundImageLayout = ImageLayout.Stretch;
             int x = 80; // for x coordinate
-            int secX = 80;
 
             for (int i = 0; i < numGold; i++)
             {
@@ -63,13 +59,11 @@ namespace MedalRanking
                     pbGoldRUS.Location = new Point(x - 480, 40);
                     panelRUSgold.Controls.Add(pbGoldRUS);
                     x += 20;
-                    textBox1.Text = $"{x}{secX}";
                 }
                 else
                 {
                     pbGoldRUS.Location = new Point(x + 20, 20);
                     panelRUSgold.Controls.Add(pbGoldRUS);
-                    textBox1.Text = $"{x}{secX}";
                     x += 20;
                 }
             }
