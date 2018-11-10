@@ -45,5 +45,34 @@ namespace MedalRanking
                 }
             }
         }
+
+        private void numGoldRUS_ValueChanged(object sender, EventArgs e)
+        {
+            int numGold = int.Parse(numGoldRUS.Value.ToString());
+            PictureBox pbGoldRUS = new PictureBox();
+            pbGoldRUS.Size = new Size(20, 20);
+            pbGoldRUS.BackgroundImage = Properties.Resources.gold;
+            pbGoldRUS.BackgroundImageLayout = ImageLayout.Stretch;
+            int x = 80; // for x coordinate
+            int secX = 80;
+
+            for (int i = 0; i < numGold; i++)
+            {
+                if (numGold > 25)
+                {
+                    pbGoldRUS.Location = new Point(x - 480, 40);
+                    panelRUSgold.Controls.Add(pbGoldRUS);
+                    x += 20;
+                    textBox1.Text = $"{x}{secX}";
+                }
+                else
+                {
+                    pbGoldRUS.Location = new Point(x + 20, 20);
+                    panelRUSgold.Controls.Add(pbGoldRUS);
+                    textBox1.Text = $"{x}{secX}";
+                    x += 20;
+                }
+            }
+        }
     }
 }

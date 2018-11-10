@@ -45,6 +45,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,12 +94,13 @@
             this.splitContainer1.Panel2.Controls.Add(this.panelRUSsilver);
             this.splitContainer1.Panel2.Controls.Add(this.panelRUSgold);
             this.splitContainer1.Size = new System.Drawing.Size(605, 450);
-            this.splitContainer1.SplitterDistance = 236;
+            this.splitContainer1.SplitterDistance = 234;
             this.splitContainer1.TabIndex = 1;
             // 
             // panelUSAbronze
             // 
             this.panelUSAbronze.BackColor = System.Drawing.Color.Transparent;
+            this.panelUSAbronze.Controls.Add(this.label6);
             this.panelUSAbronze.Controls.Add(this.numBronzeUSA);
             this.panelUSAbronze.Location = new System.Drawing.Point(3, 163);
             this.panelUSAbronze.Name = "panelUSAbronze";
@@ -114,6 +123,7 @@
             // panelUSAsilver
             // 
             this.panelUSAsilver.BackColor = System.Drawing.Color.Transparent;
+            this.panelUSAsilver.Controls.Add(this.label4);
             this.panelUSAsilver.Controls.Add(this.numSilverUSA);
             this.panelUSAsilver.Location = new System.Drawing.Point(0, 80);
             this.panelUSAsilver.Name = "panelUSAsilver";
@@ -136,15 +146,17 @@
             // panelUSAgold
             // 
             this.panelUSAgold.BackColor = System.Drawing.Color.Transparent;
+            this.panelUSAgold.Controls.Add(this.label9);
+            this.panelUSAgold.Controls.Add(this.label2);
             this.panelUSAgold.Controls.Add(this.numGoldUSA);
             this.panelUSAgold.Location = new System.Drawing.Point(3, 3);
             this.panelUSAgold.Name = "panelUSAgold";
-            this.panelUSAgold.Size = new System.Drawing.Size(602, 69);
+            this.panelUSAgold.Size = new System.Drawing.Size(602, 73);
             this.panelUSAgold.TabIndex = 4;
             // 
             // numGoldUSA
             // 
-            this.numGoldUSA.Location = new System.Drawing.Point(23, 17);
+            this.numGoldUSA.Location = new System.Drawing.Point(23, 23);
             this.numGoldUSA.Maximum = new decimal(new int[] {
             50,
             0,
@@ -159,6 +171,7 @@
             // panelRUSbronze
             // 
             this.panelRUSbronze.BackColor = System.Drawing.Color.Transparent;
+            this.panelRUSbronze.Controls.Add(this.label8);
             this.panelRUSbronze.Controls.Add(this.numBronzeRUS);
             this.panelRUSbronze.Location = new System.Drawing.Point(3, 145);
             this.panelRUSbronze.Name = "panelRUSbronze";
@@ -181,6 +194,7 @@
             // panelRUSsilver
             // 
             this.panelRUSsilver.BackColor = System.Drawing.Color.Transparent;
+            this.panelRUSsilver.Controls.Add(this.label5);
             this.panelRUSsilver.Controls.Add(this.numSilverRUS);
             this.panelRUSsilver.Location = new System.Drawing.Point(0, 73);
             this.panelRUSsilver.Name = "panelRUSsilver";
@@ -203,6 +217,8 @@
             // panelRUSgold
             // 
             this.panelRUSgold.BackColor = System.Drawing.Color.Transparent;
+            this.panelRUSgold.Controls.Add(this.label10);
+            this.panelRUSgold.Controls.Add(this.label3);
             this.panelRUSgold.Controls.Add(this.numGoldRUS);
             this.panelRUSgold.Location = new System.Drawing.Point(3, 2);
             this.panelRUSgold.Name = "panelRUSgold";
@@ -211,7 +227,7 @@
             // 
             // numGoldRUS
             // 
-            this.numGoldRUS.Location = new System.Drawing.Point(23, 17);
+            this.numGoldRUS.Location = new System.Drawing.Point(23, 22);
             this.numGoldRUS.Maximum = new decimal(new int[] {
             50,
             0,
@@ -221,6 +237,7 @@
             this.numGoldRUS.Size = new System.Drawing.Size(68, 20);
             this.numGoldRUS.TabIndex = 0;
             this.numGoldRUS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numGoldRUS.ValueChanged += new System.EventHandler(this.numGoldRUS_ValueChanged);
             // 
             // panel1
             // 
@@ -236,7 +253,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(99, 135);
+            this.button1.Location = new System.Drawing.Point(102, 238);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -245,9 +262,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(40, 40);
+            this.textBox1.Location = new System.Drawing.Point(43, 143);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(192, 89);
             this.textBox1.TabIndex = 1;
             // 
@@ -256,11 +274,98 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(94, 3);
+            this.label7.Location = new System.Drawing.Point(86, 108);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 25);
             this.label7.TabIndex = 0;
             this.label7.Text = "Results";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Gold;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(25, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Gold Medals";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Gold;
+            this.label3.Location = new System.Drawing.Point(25, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Gold Medals";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Silver;
+            this.label4.Location = new System.Drawing.Point(23, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Silver Medals";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Silver;
+            this.label5.Location = new System.Drawing.Point(23, 40);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Silver Medals";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.label6.Location = new System.Drawing.Point(20, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Bronze Medals";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.label8.Location = new System.Drawing.Point(20, 40);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Bronze Medals";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.SteelBlue;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
+            this.label9.Location = new System.Drawing.Point(34, 1);
+            this.label9.Name = "label9";
+            this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label9.Size = new System.Drawing.Size(39, 16);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "USA";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Firebrick;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.Control;
+            this.label10.Location = new System.Drawing.Point(25, 0);
+            this.label10.Name = "label10";
+            this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label10.Size = new System.Drawing.Size(56, 16);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Russia";
             // 
             // Form1
             // 
@@ -276,16 +381,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panelUSAbronze.ResumeLayout(false);
+            this.panelUSAbronze.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numBronzeUSA)).EndInit();
             this.panelUSAsilver.ResumeLayout(false);
+            this.panelUSAsilver.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSilverUSA)).EndInit();
             this.panelUSAgold.ResumeLayout(false);
+            this.panelUSAgold.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numGoldUSA)).EndInit();
             this.panelRUSbronze.ResumeLayout(false);
+            this.panelRUSbronze.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numBronzeRUS)).EndInit();
             this.panelRUSsilver.ResumeLayout(false);
+            this.panelRUSsilver.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSilverRUS)).EndInit();
             this.panelRUSgold.ResumeLayout(false);
+            this.panelRUSgold.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numGoldRUS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -312,6 +423,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
 
