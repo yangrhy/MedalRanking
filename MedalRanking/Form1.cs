@@ -25,45 +25,40 @@ namespace MedalRanking
 
             int numGold = int.Parse(numGoldUSA.Value.ToString());
             int x = 80; // for x coordinate
+            int y = 20; // y coordinate
             PictureBox pbGoldUSA = new PictureBox();
+            pbGoldUSA.Size = new Size(20, 20);
+            pbGoldUSA.BackgroundImage = Properties.Resources.gold;
+            pbGoldUSA.BackgroundImageLayout = ImageLayout.Stretch;
+
 
             if (numGoldUSA.Value > prevValue)
             {
+                picMedals.Add(pbGoldUSA);
+
                 for (int i = 0; i < numGold; i++)
-                {         
-                    if (numGold <= 25)
+                {
+                    if (i < 25)
                     {
-                        picMedals.Add(pbGoldUSA); // add the pictureBox to the list
-                        picMedals[i].Size = new Size(20, 20);
-                        picMedals[i].BackgroundImage = Properties.Resources.gold;
-                        picMedals[i].BackgroundImageLayout = ImageLayout.Stretch;
-                        picMedals[i].Location = new Point(x + 20, 20);
+                        picMedals[i].Location = new Point(x + 20, y);
                         panelUSAgold.Controls.Add(picMedals[i]);
                         x += 20;
-                        textBox1.Text = $"{numGold}:{numGoldUSA.Value}:{prevValue}:{x}";
+                        textBox1.Text = $"{numGold}:{numGoldUSA.Value}:{prevValue}:{i}:{x}:{picMedals.Count}";
                     }
                     else
                     {
-                        picMedals.Add(pbGoldUSA); // add the pictureBox to the list
-                        picMedals[i].Size = new Size(20, 20);
-                        picMedals[i].BackgroundImage = Properties.Resources.gold;
-                        picMedals[i].BackgroundImageLayout = ImageLayout.Stretch;
-                        picMedals[i].Location = new Point(x - 480, 40);
+                        picMedals[i].Location = new Point(x - 480, y + 20);
                         panelUSAgold.Controls.Add(picMedals[i]);
                         x += 20;
-                        textBox1.Text = $"{numGold}:{numGoldUSA.Value}:{prevValue}:{x}";
+                        textBox1.Text = $"{numGold}:{numGoldUSA.Value}:{prevValue}:{i}:{x}:{picMedals.Count}";
                     }
                 }
             }
-            else if (numGoldUSA.Value < prevValue)
+            else
             {
-                for (int i = numGold; i > numGold; i--)
-                {
-                    picMedals.RemoveAt(numGold);
-                    panelUSAgold.Controls.Remove(picMedals[numGold]);
-                    x -= 20;
-                    textBox1.Text = $"{numGold}:{numGoldUSA.Value}:{prevValue}:{x}";
-                }
+                panelUSAgold.Controls.Remove(picMedals[numGold]);
+                picMedals.RemoveAt(picMedals.Count-1);
+                textBox1.Text = $"{numGold}:{numGoldUSA.Value}:{prevValue}:{x}:wtf{picMedals.Count}";
 
             }
 
