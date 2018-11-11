@@ -12,7 +12,8 @@ namespace MedalRanking
 {
     public partial class Form1 : Form
     {
-        int numToCheck = 0;
+        decimal prevValue = 0;
+        List<PictureBox> picMedals = new List<PictureBox>();
 
         public Form1()
         {
@@ -21,38 +22,23 @@ namespace MedalRanking
 
         private void numGoldUSA_ValueChanged(object sender, EventArgs e)
         {
+            var num = ((NumericUpDown)sender).Value;
+            textBox1.Text = num.ToString();
             int numGold = int.Parse(numGoldUSA.Value.ToString());
-            PictureBox[] pbGoldUSA = new PictureBox[50];
+
+            PictureBox pbGoldUSA = new PictureBox();
+            pbGoldUSA.Size = new Size(20, 20);
+            pbGoldUSA.BackgroundImage = Properties.Resources.gold;
+            pbGoldUSA.BackgroundImageLayout = ImageLayout.Stretch;
             int x = 80; // for x coordinate
 
-            for (int i = 0; i < numGold; i++)
+
+            if (numGoldUSA.Value < prevValue)
             {
-                pbGoldUSA[i] = new PictureBox();
-                pbGoldUSA[i].Size = new Size(20, 20);
-                pbGoldUSA[i].BackgroundImage = Properties.Resources.gold;
-                pbGoldUSA[i].BackgroundImageLayout = ImageLayout.Stretch;
-
-                if (numGold > 25)
-                {
-                    pbGoldUSA[i].Location = new Point(x - 480, 40);
-                    panelUSAgold.Controls.Add(pbGoldUSA[i]);
-                    x += 20;
-                    textBox1.Text = $"{numGold}:{numToCheck}:{i}:{pbGoldUSA.Length}";
-                }
-                else
-                {
-                    pbGoldUSA[i].Location = new Point(x + 20, 20);
-                    panelUSAgold.Controls.Add(pbGoldUSA[i]);
-                    x += 20;
-                    textBox1.Text = $"{numGold}:{numToCheck}:{i}:{pbGoldUSA.Length}";
-                }
+                MessageBox.Show("Down");
             }
-                /*PictureBox pbGoldUSA = new PictureBox();
-                pbGoldUSA.Size = new Size(20, 20);
-                pbGoldUSA.BackgroundImage = Properties.Resources.gold;
-                pbGoldUSA.BackgroundImageLayout = ImageLayout.Stretch;
-                int x = 80; // for x coordinate
-
+            else if (numGoldUSA.Value > prevValue)
+            {
                 for (int i = 0; i < numGold; i++)
                 {
                     if (numGold > 25)
@@ -60,7 +46,7 @@ namespace MedalRanking
                         pbGoldUSA.Location = new Point(x - 480, 40);
                         panelUSAgold.Controls.Add(pbGoldUSA);
                         x += 20;
-                        textBox1.Text = $"{numGold}:{numToCheck}:{i}";
+                        textBox1.Text = $"{numGold}:{i}";
 
                     }
                     else
@@ -68,10 +54,13 @@ namespace MedalRanking
                         pbGoldUSA.Location = new Point(x + 20, 20);
                         panelUSAgold.Controls.Add(pbGoldUSA);
                         x += 20;
-                        textBox1.Text = $"{numGold}:{numToCheck}:{i}";
+                        textBox1.Text = $"{numGold}:{i}";
                     }
-                }*/
+                }
             }
+
+            prevValue = numGoldUSA.Value;
+        }
 
         private void numGoldRUS_ValueChanged(object sender, EventArgs e)
         {
@@ -98,5 +87,53 @@ namespace MedalRanking
                 }
             }
         }
+
+        private void numSilverUSA_ValueChanged(object sender, EventArgs e)
+        {
+
+            if (numSilverUSA.Value < prevValue)
+            {
+                MessageBox.Show("Down");
+            }
+            else if (numSilverUSA.Value > prevValue)
+            {
+                MessageBox.Show("Up");
+            }
+
+            prevValue = numSilverUSA.Value;
+        }
+
+        private void numBronzeUSA_ValueChanged(object sender, EventArgs e)
+        {
+            var num = ((NumericUpDown)sender).Value;
+            int numGold = int.Parse(numBronzeUSA.Value.ToString());
+
+            PictureBox pbBronzeUSA = new PictureBox();
+            pbBronzeUSA.Size = new Size(20, 20);
+            pbBronzeUSA.BackgroundImage = Properties.Resources.bronze;
+            pbBronzeUSA.BackgroundImageLayout = ImageLayout.Stretch;
+            int x = 80; // for x coordinate
+
+            for (int i = 0; i < numGold; i++)
+            {
+                if (numGold > 25)
+                {
+                    pbBronzeUSA.Location = new Point(x - 480, 40);
+                    panelUSAbronze.Controls.Add(pbBronzeUSA);
+                    x += 20;
+                    textBox1.Text = $"{numGold}:{i}";
+
+                }
+                else
+                {
+                    pbBronzeUSA.Location = new Point(x + 20, 20);
+                    panelUSAbronze.Controls.Add(pbBronzeUSA);
+                    x += 20;
+                    textBox1.Text = $"{numGold}:{i}";
+                }
+            }
+        }
     }
+
+
 }
