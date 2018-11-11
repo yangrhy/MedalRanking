@@ -53,6 +53,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -126,6 +127,7 @@
             0,
             0});
             this.numBronzeUSA.Name = "numBronzeUSA";
+            this.numBronzeUSA.ReadOnly = true;
             this.numBronzeUSA.Size = new System.Drawing.Size(68, 20);
             this.numBronzeUSA.TabIndex = 0;
             this.numBronzeUSA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -160,6 +162,7 @@
             0,
             0});
             this.numSilverUSA.Name = "numSilverUSA";
+            this.numSilverUSA.ReadOnly = true;
             this.numSilverUSA.Size = new System.Drawing.Size(68, 20);
             this.numSilverUSA.TabIndex = 0;
             this.numSilverUSA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -209,6 +212,7 @@
             0,
             0});
             this.numGoldUSA.Name = "numGoldUSA";
+            this.numGoldUSA.ReadOnly = true;
             this.numGoldUSA.Size = new System.Drawing.Size(68, 20);
             this.numGoldUSA.TabIndex = 0;
             this.numGoldUSA.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -243,6 +247,7 @@
             0,
             0});
             this.numBronzeRUS.Name = "numBronzeRUS";
+            this.numBronzeRUS.ReadOnly = true;
             this.numBronzeRUS.Size = new System.Drawing.Size(68, 20);
             this.numBronzeRUS.TabIndex = 0;
             this.numBronzeRUS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -277,6 +282,7 @@
             0,
             0});
             this.numSilverRUS.Name = "numSilverRUS";
+            this.numSilverRUS.ReadOnly = true;
             this.numSilverRUS.Size = new System.Drawing.Size(68, 20);
             this.numSilverRUS.TabIndex = 0;
             this.numSilverRUS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -325,6 +331,7 @@
             0,
             0});
             this.numGoldRUS.Name = "numGoldRUS";
+            this.numGoldRUS.ReadOnly = true;
             this.numGoldRUS.Size = new System.Drawing.Size(68, 20);
             this.numGoldRUS.TabIndex = 0;
             this.numGoldRUS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -334,6 +341,7 @@
             // 
             this.panel1.BackgroundImage = global::MedalRanking.Properties.Resources.eight_col_olympic_continents_16x10;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label7);
@@ -344,12 +352,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(102, 238);
+            this.button1.Location = new System.Drawing.Point(160, 237);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Calculate";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -370,6 +379,16 @@
             this.label7.Size = new System.Drawing.Size(91, 25);
             this.label7.TabIndex = 0;
             this.label7.Text = "Results";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(43, 237);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Clear";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -435,6 +454,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button2;
     }
 }
 

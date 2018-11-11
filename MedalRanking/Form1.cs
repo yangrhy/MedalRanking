@@ -284,5 +284,37 @@ namespace MedalRanking
 
             prevValueBronzeRUS = numBronzeRUS.Value;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var numMedalsUSA = numGoldUSA.Value + numSilverUSA.Value + numBronzeUSA.Value;
+            var numMedalsRUS = numGoldRUS.Value + numSilverRUS.Value + numBronzeRUS.Value;
+
+            if (numMedalsUSA > numMedalsRUS)
+            {
+                textBox1.Text += "USA wins by count!";
+            }
+            if (numGoldUSA.Value > numGoldRUS.Value)
+            {
+                textBox1.Text += "USA wins by color!";
+            }
+            else if ((numGoldUSA.Value == numGoldRUS.Value) && (numSilverUSA.Value > numSilverRUS.Value))
+            {
+                textBox1.Text += "USA wins by color!";
+            }
+            else if ((numGoldUSA.Value == numGoldRUS.Value) && (numSilverUSA.Value == numSilverRUS.Value) && (numBronzeUSA.Value > numBronzeRUS.Value))
+            {
+                textBox1.Text += "USA wins by color!";
+            }           
+            else
+            {
+                textBox1.Text = "None!";
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
     }
 }
