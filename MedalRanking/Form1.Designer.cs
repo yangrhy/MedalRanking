@@ -53,7 +53,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -341,7 +340,6 @@
             // 
             this.panel1.BackgroundImage = global::MedalRanking.Properties.Resources.eight_col_olympic_continents_16x10;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label7);
@@ -352,7 +350,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(160, 237);
+            this.button1.Location = new System.Drawing.Point(100, 237);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -379,16 +377,6 @@
             this.label7.Size = new System.Drawing.Size(91, 25);
             this.label7.TabIndex = 0;
             this.label7.Text = "Results";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(43, 237);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Clear";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -454,7 +442,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
     }
 }
 

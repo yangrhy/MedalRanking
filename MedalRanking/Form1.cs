@@ -287,12 +287,13 @@ namespace MedalRanking
 
         private void button1_Click(object sender, EventArgs e)
         {
+            textBox1.Clear();
             var numMedalsUSA = numGoldUSA.Value + numSilverUSA.Value + numBronzeUSA.Value;
             var numMedalsRUS = numGoldRUS.Value + numSilverRUS.Value + numBronzeRUS.Value;
 
             if (numMedalsUSA > numMedalsRUS)
             {
-                textBox1.Text += "USA wins by count!";
+                textBox1.Text += "USA wins by count!\r\n";
             }
             if (numGoldUSA.Value > numGoldRUS.Value)
             {
