@@ -12,8 +12,21 @@ namespace MedalRanking
 {
     public partial class Form1 : Form
     {
-        decimal prevValue = 0;
-        List<PictureBox> picMedals = new List<PictureBox>();
+        // value used to determine if numericUpDown buttons are pressed up or down
+        decimal prevValueGoldUSA = 0;
+        decimal prevValueSilverUSA = 0;
+        decimal prevValueBronzeUSA = 0;
+        decimal prevValueGoldRUS = 0;
+        decimal prevValueSilverRUS = 0;
+        decimal prevValueBronzeRUS = 0;
+
+        // Lists of PictureBox for each medal/country that pictures will be stored in
+        private List<PictureBox> picGoldMedalsUSA = new List<PictureBox>();
+        private List<PictureBox> picSilverMedalsUSA = new List<PictureBox>();
+        private List<PictureBox> picBronzeMedalsUSA = new List<PictureBox>();
+        private List<PictureBox> picGoldMedalsRUS = new List<PictureBox>();
+        private List<PictureBox> picSilverMedalsRUS = new List<PictureBox>();
+        private List<PictureBox> picBronzeMedalsRUS = new List<PictureBox>();
 
         public Form1()
         {
@@ -22,121 +35,170 @@ namespace MedalRanking
 
         private void numGoldUSA_ValueChanged(object sender, EventArgs e)
         {
-
-            int numGold = int.Parse(numGoldUSA.Value.ToString());
+            // adds pictures of medals (up to 50 (maximum allowed)) as changes (up, down) on numericUpDown button is pressed
+            // by inserting the images into a list<{PictureBox>, allowing deletion of most previous set image if pressed do
+            var numMedals = numGoldUSA.Value;
             int x = 80; // for x coordinate
             int y = 20; // y coordinate
-            PictureBox pbGoldUSA = new PictureBox();
-            pbGoldUSA.Size = new Size(20, 20);
-            pbGoldUSA.BackgroundImage = Properties.Resources.gold;
-            pbGoldUSA.BackgroundImageLayout = ImageLayout.Stretch;
+            PictureBox pb1 = new PictureBox();
+            pb1.Size = new Size(20, 20);
+            pb1.BackgroundImage = Properties.Resources.gold;
+            pb1.BackgroundImageLayout = ImageLayout.Stretch;
 
 
-            if (numGoldUSA.Value > prevValue)
+            if (numGoldUSA.Value > prevValueGoldUSA) // if numericUpDown is pressed up
             {
-                picMedals.Add(pbGoldUSA);
+                picGoldMedalsUSA.Add(pb1);
 
-                for (int i = 0; i < numGold; i++)
+                for (int i = 0; i < numMedals; i++)
                 {
-                    if (i < 25)
+                    if (i < 25) // used to determine when to start printing on the next row
                     {
-                        picMedals[i].Location = new Point(x + 20, y);
-                        panelUSAgold.Controls.Add(picMedals[i]);
+                        picGoldMedalsUSA[i].Location = new Point(x + 20, y);
+                        panelUSAgold.Controls.Add(picGoldMedalsUSA[i]);
                         x += 20;
-                        textBox1.Text = $"{numGold}:{numGoldUSA.Value}:{prevValue}:{i}:{x}:{picMedals.Count}";
                     }
                     else
                     {
-                        picMedals[i].Location = new Point(x - 480, y + 20);
-                        panelUSAgold.Controls.Add(picMedals[i]);
+                        picGoldMedalsUSA[i].Location = new Point(x - 480, y + 20);
+                        panelUSAgold.Controls.Add(picGoldMedalsUSA[i]);
                         x += 20;
-                        textBox1.Text = $"{numGold}:{numGoldUSA.Value}:{prevValue}:{i}:{x}:{picMedals.Count}";
                     }
                 }
             }
-            else
+            else if (numGoldUSA.Value < prevValueGoldUSA) // if numericUpDown is pressed down
             {
-                panelUSAgold.Controls.Remove(picMedals[numGold]);
-                picMedals.RemoveAt(picMedals.Count-1);
-                textBox1.Text = $"{numGold}:{numGoldUSA.Value}:{prevValue}:{x}:wtf{picMedals.Count}";
-
+                panelUSAgold.Controls.Remove(picGoldMedalsUSA[picGoldMedalsUSA.Count - 1]);
+                picGoldMedalsUSA.RemoveAt(picGoldMedalsUSA.Count - 1);
             }
 
-            prevValue = numGoldUSA.Value;
+            prevValueGoldUSA = numGoldUSA.Value;
         }
 
         private void numGoldRUS_ValueChanged(object sender, EventArgs e)
         {
-            int numGold = int.Parse(numGoldRUS.Value.ToString());
-            PictureBox pbGoldRUS = new PictureBox();
-            pbGoldRUS.Size = new Size(20, 20);
-            pbGoldRUS.BackgroundImage = Properties.Resources.gold;
-            pbGoldRUS.BackgroundImageLayout = ImageLayout.Stretch;
+            // adds pictures of medals (up to 50 (maximum allowed)) as changes (up, down) on numericUpDown button is pressed
+            // by inserting the images into a list<{PictureBox>, allowing deletion of most previous set image if pressed do
+            var numMedals = numGoldRUS.Value;
             int x = 80; // for x coordinate
+            int y = 20; // y coordinate
+            PictureBox pb1 = new PictureBox();
+            pb1.Size = new Size(20, 20);
+            pb1.BackgroundImage = Properties.Resources.gold;
+            pb1.BackgroundImageLayout = ImageLayout.Stretch;
 
-            for (int i = 0; i < numGold; i++)
+
+            if (numGoldRUS.Value > prevValueGoldRUS) // if numericUpDown is pressed up
             {
-                if (numGold > 25)
+                picGoldMedalsRUS.Add(pb1);
+
+                for (int i = 0; i < numMedals; i++)
                 {
-                    pbGoldRUS.Location = new Point(x - 480, 40);
-                    panelRUSgold.Controls.Add(pbGoldRUS);
-                    x += 20;
-                }
-                else
-                {
-                    pbGoldRUS.Location = new Point(x + 20, 20);
-                    panelRUSgold.Controls.Add(pbGoldRUS);
-                    x += 20;
+                    if (i < 25) // used to determine when to start printing on the next row
+                    {
+                        picGoldMedalsRUS[i].Location = new Point(x + 20, y);
+                        panelRUSgold.Controls.Add(picGoldMedalsRUS[i]);
+                        x += 20;
+                    }
+                    else
+                    {
+                        picGoldMedalsRUS[i].Location = new Point(x - 480, y + 20);
+                        panelRUSgold.Controls.Add(picGoldMedalsRUS[i]);
+                        x += 20;
+                    }
                 }
             }
+            else if (numGoldRUS.Value < prevValueGoldRUS) // if numericUpDown is pressed down
+            {
+                panelRUSgold.Controls.Remove(picGoldMedalsRUS[picGoldMedalsRUS.Count - 1]);
+                picGoldMedalsRUS.RemoveAt(picGoldMedalsRUS.Count - 1);
+            }
+
+            prevValueGoldRUS = numGoldRUS.Value;
         }
 
         private void numSilverUSA_ValueChanged(object sender, EventArgs e)
         {
 
-            if (numSilverUSA.Value < prevValue)
-            {
-                MessageBox.Show("Down");
-            }
-            else if (numSilverUSA.Value > prevValue)
-            {
-                MessageBox.Show("Up");
-            }
-
-            prevValue = numSilverUSA.Value;
-        }
-
-        private void numBronzeUSA_ValueChanged(object sender, EventArgs e)
-        {
-            var num = ((NumericUpDown)sender).Value;
-            int numGold = int.Parse(numBronzeUSA.Value.ToString());
-
-            PictureBox pbBronzeUSA = new PictureBox();
-            pbBronzeUSA.Size = new Size(20, 20);
-            pbBronzeUSA.BackgroundImage = Properties.Resources.bronze;
-            pbBronzeUSA.BackgroundImageLayout = ImageLayout.Stretch;
+            // adds pictures of medals (up to 50 (maximum allowed)) as changes (up, down) on numericUpDown button is pressed
+            // by inserting the images into a list<{PictureBox>, allowing deletion of most previous set image if pressed do
+            var numMedals = numSilverUSA.Value;
             int x = 80; // for x coordinate
+            int y = 20; // y coordinate
+            PictureBox pb1 = new PictureBox();
+            pb1.Size = new Size(20, 20);
+            pb1.BackgroundImage = Properties.Resources.silver;
+            pb1.BackgroundImageLayout = ImageLayout.Stretch;
 
-            for (int i = 0; i < numGold; i++)
+
+            if (numSilverUSA.Value > prevValueSilverUSA) // if numericUpDown is pressed up
             {
-                if (numGold > 25)
-                {
-                    pbBronzeUSA.Location = new Point(x - 480, 40);
-                    panelUSAbronze.Controls.Add(pbBronzeUSA);
-                    x += 20;
-                    textBox1.Text = $"{numGold}:{i}";
+                picSilverMedalsUSA.Add(pb1);
 
-                }
-                else
+                for (int i = 0; i < numMedals; i++)
                 {
-                    pbBronzeUSA.Location = new Point(x + 20, 20);
-                    panelUSAbronze.Controls.Add(pbBronzeUSA);
-                    x += 20;
-                    textBox1.Text = $"{numGold}:{i}";
+                    if (i < 25) // used to determine when to start printing on the next row
+                    {
+                        picSilverMedalsUSA[i].Location = new Point(x + 20, y);
+                        panelUSAsilver.Controls.Add(picSilverMedalsUSA[i]);
+                        x += 20;
+                    }
+                    else
+                    {
+                        picSilverMedalsUSA[i].Location = new Point(x - 480, y + 20);
+                        panelUSAsilver.Controls.Add(picSilverMedalsUSA[i]);
+                        x += 20;
+                    }
                 }
             }
+            else if (numSilverUSA.Value < prevValueSilverUSA) // if numericUpDown is pressed down
+            {
+                panelUSAsilver.Controls.Remove(picSilverMedalsUSA[picSilverMedalsUSA.Count - 1]);
+                picSilverMedalsUSA.RemoveAt(picSilverMedalsUSA.Count - 1);
+            }
+
+            prevValueSilverUSA = numSilverUSA.Value;
+    }
+    private void numBronzeUSA_ValueChanged(object sender, EventArgs e)
+        {
+            // adds pictures of medals (up to 50 (maximum allowed)) as changes (up, down) on numericUpDown button is pressed
+            // by inserting the images into a list<{PictureBox>, allowing deletion of most previous set image if pressed do
+            var numMedals = numBronzeUSA.Value;
+            int x = 80; // for x coordinate
+            int y = 20; // y coordinate
+            PictureBox pb1 = new PictureBox();
+            pb1.Size = new Size(20, 20);
+            pb1.BackgroundImage = Properties.Resources.bronze;
+            pb1.BackgroundImageLayout = ImageLayout.Stretch;
+
+
+            if (numBronzeUSA.Value > prevValueBronzeUSA) // if numericUpDown is pressed up
+            {
+                picBronzeMedalsRUS.Add(pb1);
+
+                for (int i = 0; i < numMedals; i++)
+                {
+                    if (i < 25) // used to determine when to start printing on the next row
+                    {
+                        picBronzeMedalsRUS[i].Location = new Point(x + 20, y);
+                        panelUSAbronze.Controls.Add(picBronzeMedalsRUS[i]);
+                        x += 20;
+                    }
+                    else
+                    {
+                        picBronzeMedalsRUS[i].Location = new Point(x - 480, y + 20);
+                        panelUSAbronze.Controls.Add(picBronzeMedalsRUS[i]);
+                        x += 20;
+                    }
+                }
+            }
+            else if (numBronzeUSA.Value < prevValueBronzeUSA) // if numericUpDown is pressed down
+            {
+                panelUSAbronze.Controls.Remove(picBronzeMedalsRUS[picBronzeMedalsRUS.Count - 1]);
+                picBronzeMedalsRUS.RemoveAt(picBronzeMedalsRUS.Count - 1);
+            }
+
+            prevValueBronzeUSA = numBronzeUSA.Value;
         }
     }
-
-
 }
