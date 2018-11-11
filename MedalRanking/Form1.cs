@@ -74,6 +74,90 @@ namespace MedalRanking
 
             prevValueGoldUSA = numGoldUSA.Value;
         }
+     
+        private void numSilverUSA_ValueChanged(object sender, EventArgs e)
+        {
+            // adds pictures of medals (up to 50 (maximum allowed)) as changes (up, down) on numericUpDown button is pressed
+            // by inserting the images into a list<{PictureBox>, allowing deletion of most previous set image if pressed do
+            var numMedals = numSilverUSA.Value;
+            int x = 80; // for x coordinate
+            int y = 20; // y coordinate
+            PictureBox pb1 = new PictureBox();
+            pb1.Size = new Size(20, 20);
+            pb1.BackgroundImage = Properties.Resources.silver;
+            pb1.BackgroundImageLayout = ImageLayout.Stretch;
+
+
+            if (numSilverUSA.Value > prevValueSilverUSA) // if numericUpDown is pressed up
+            {
+                picSilverMedalsUSA.Add(pb1);
+
+                for (int i = 0; i < numMedals; i++)
+                {
+                    if (i < 25) // used to determine when to start printing on the next row
+                    {
+                        picSilverMedalsUSA[i].Location = new Point(x + 20, y);
+                        panelUSAsilver.Controls.Add(picSilverMedalsUSA[i]);
+                        x += 20;
+                    }
+                    else
+                    {
+                        picSilverMedalsUSA[i].Location = new Point(x - 480, y + 20);
+                        panelUSAsilver.Controls.Add(picSilverMedalsUSA[i]);
+                        x += 20;
+                    }
+                }
+            }
+            else if (numSilverUSA.Value < prevValueSilverUSA) // if numericUpDown is pressed down
+            {
+                panelUSAsilver.Controls.Remove(picSilverMedalsUSA[picSilverMedalsUSA.Count - 1]);
+                picSilverMedalsUSA.RemoveAt(picSilverMedalsUSA.Count - 1);
+            }
+
+            prevValueSilverUSA = numSilverUSA.Value;
+        }
+
+        private void numBronzeUSA_ValueChanged(object sender, EventArgs e)
+            {
+                // adds pictures of medals (up to 50 (maximum allowed)) as changes (up, down) on numericUpDown button is pressed
+                // by inserting the images into a list<{PictureBox>, allowing deletion of most previous set image if pressed do
+                var numMedals = numBronzeUSA.Value;
+                int x = 80; // for x coordinate
+                int y = 20; // y coordinate
+                PictureBox pb1 = new PictureBox();
+                pb1.Size = new Size(20, 20);
+                pb1.BackgroundImage = Properties.Resources.bronze;
+                pb1.BackgroundImageLayout = ImageLayout.Stretch;
+
+
+                if (numBronzeUSA.Value > prevValueBronzeUSA) // if numericUpDown is pressed up
+                {
+                    picBronzeMedalsUSA.Add(pb1);
+
+                    for (int i = 0; i < numMedals; i++)
+                    {
+                        if (i < 25) // used to determine when to start printing on the next row
+                        {
+                            picBronzeMedalsUSA[i].Location = new Point(x + 20, y);
+                            panelUSAbronze.Controls.Add(picBronzeMedalsUSA[i]);
+                            x += 20;
+                        }
+                        else
+                        {
+                            picBronzeMedalsUSA[i].Location = new Point(x - 480, y + 20);
+                            panelUSAbronze.Controls.Add(picBronzeMedalsUSA[i]);
+                            x += 20;
+                        }
+                    }
+                }
+                else if (numBronzeUSA.Value < prevValueBronzeUSA) // if numericUpDown is pressed down
+                {
+                    panelUSAbronze.Controls.Remove(picBronzeMedalsUSA[picBronzeMedalsUSA.Count - 1]);
+                    picBronzeMedalsUSA.RemoveAt(picBronzeMedalsUSA.Count - 1);
+                }
+
+                 prevValueBronzeUSA = numBronzeUSA.Value;
+        }
 
         private void numGoldRUS_ValueChanged(object sender, EventArgs e)
         {
@@ -117,12 +201,11 @@ namespace MedalRanking
             prevValueGoldRUS = numGoldRUS.Value;
         }
 
-        private void numSilverUSA_ValueChanged(object sender, EventArgs e)
+        private void numSilverRUS_ValueChanged(object sender, EventArgs e)
         {
-
             // adds pictures of medals (up to 50 (maximum allowed)) as changes (up, down) on numericUpDown button is pressed
             // by inserting the images into a list<{PictureBox>, allowing deletion of most previous set image if pressed do
-            var numMedals = numSilverUSA.Value;
+            var numMedals = numSilverRUS.Value;
             int x = 80; // for x coordinate
             int y = 20; // y coordinate
             PictureBox pb1 = new PictureBox();
@@ -131,39 +214,40 @@ namespace MedalRanking
             pb1.BackgroundImageLayout = ImageLayout.Stretch;
 
 
-            if (numSilverUSA.Value > prevValueSilverUSA) // if numericUpDown is pressed up
+            if (numSilverRUS.Value > prevValueSilverRUS) // if numericUpDown is pressed up
             {
-                picSilverMedalsUSA.Add(pb1);
+                picSilverMedalsRUS.Add(pb1);
 
                 for (int i = 0; i < numMedals; i++)
                 {
                     if (i < 25) // used to determine when to start printing on the next row
                     {
-                        picSilverMedalsUSA[i].Location = new Point(x + 20, y);
-                        panelUSAsilver.Controls.Add(picSilverMedalsUSA[i]);
+                        picSilverMedalsRUS[i].Location = new Point(x + 20, y);
+                        panelRUSsilver.Controls.Add(picSilverMedalsRUS[i]);
                         x += 20;
                     }
                     else
                     {
-                        picSilverMedalsUSA[i].Location = new Point(x - 480, y + 20);
-                        panelUSAsilver.Controls.Add(picSilverMedalsUSA[i]);
+                        picSilverMedalsRUS[i].Location = new Point(x - 480, y + 20);
+                        panelRUSsilver.Controls.Add(picSilverMedalsRUS[i]);
                         x += 20;
                     }
                 }
             }
-            else if (numSilverUSA.Value < prevValueSilverUSA) // if numericUpDown is pressed down
+            else if (numSilverRUS.Value < prevValueSilverRUS) // if numericUpDown is pressed down
             {
-                panelUSAsilver.Controls.Remove(picSilverMedalsUSA[picSilverMedalsUSA.Count - 1]);
-                picSilverMedalsUSA.RemoveAt(picSilverMedalsUSA.Count - 1);
+                panelRUSsilver.Controls.Remove(picSilverMedalsRUS[picSilverMedalsRUS.Count - 1]);
+                picSilverMedalsRUS.RemoveAt(picSilverMedalsRUS.Count - 1);
             }
 
-            prevValueSilverUSA = numSilverUSA.Value;
-    }
-    private void numBronzeUSA_ValueChanged(object sender, EventArgs e)
+            prevValueSilverRUS = numSilverRUS.Value;
+        }
+
+        private void numBronzeRUS_ValueChanged(object sender, EventArgs e)
         {
             // adds pictures of medals (up to 50 (maximum allowed)) as changes (up, down) on numericUpDown button is pressed
             // by inserting the images into a list<{PictureBox>, allowing deletion of most previous set image if pressed do
-            var numMedals = numBronzeUSA.Value;
+            var numMedals = numBronzeRUS.Value;
             int x = 80; // for x coordinate
             int y = 20; // y coordinate
             PictureBox pb1 = new PictureBox();
@@ -172,7 +256,7 @@ namespace MedalRanking
             pb1.BackgroundImageLayout = ImageLayout.Stretch;
 
 
-            if (numBronzeUSA.Value > prevValueBronzeUSA) // if numericUpDown is pressed up
+            if (numBronzeRUS.Value > prevValueBronzeRUS) // if numericUpDown is pressed up
             {
                 picBronzeMedalsRUS.Add(pb1);
 
@@ -181,24 +265,24 @@ namespace MedalRanking
                     if (i < 25) // used to determine when to start printing on the next row
                     {
                         picBronzeMedalsRUS[i].Location = new Point(x + 20, y);
-                        panelUSAbronze.Controls.Add(picBronzeMedalsRUS[i]);
+                        panelRUSbronze.Controls.Add(picBronzeMedalsRUS[i]);
                         x += 20;
                     }
                     else
                     {
                         picBronzeMedalsRUS[i].Location = new Point(x - 480, y + 20);
-                        panelUSAbronze.Controls.Add(picBronzeMedalsRUS[i]);
+                        panelRUSbronze.Controls.Add(picBronzeMedalsRUS[i]);
                         x += 20;
                     }
                 }
             }
-            else if (numBronzeUSA.Value < prevValueBronzeUSA) // if numericUpDown is pressed down
+            else if (numBronzeRUS.Value < prevValueBronzeRUS) // if numericUpDown is pressed down
             {
-                panelUSAbronze.Controls.Remove(picBronzeMedalsRUS[picBronzeMedalsRUS.Count - 1]);
+                panelRUSbronze.Controls.Remove(picBronzeMedalsRUS[picBronzeMedalsRUS.Count - 1]);
                 picBronzeMedalsRUS.RemoveAt(picBronzeMedalsRUS.Count - 1);
             }
 
-            prevValueBronzeUSA = numBronzeUSA.Value;
+            prevValueBronzeRUS = numBronzeRUS.Value;
         }
     }
 }

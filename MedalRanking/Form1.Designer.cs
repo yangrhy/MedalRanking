@@ -246,6 +246,7 @@
             this.numBronzeRUS.Size = new System.Drawing.Size(68, 20);
             this.numBronzeRUS.TabIndex = 0;
             this.numBronzeRUS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numBronzeRUS.ValueChanged += new System.EventHandler(this.numBronzeRUS_ValueChanged);
             // 
             // panelRUSsilver
             // 
@@ -279,6 +280,7 @@
             this.numSilverRUS.Size = new System.Drawing.Size(68, 20);
             this.numSilverRUS.TabIndex = 0;
             this.numSilverRUS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numSilverRUS.ValueChanged += new System.EventHandler(this.numSilverRUS_ValueChanged);
             // 
             // panelRUSgold
             // 
